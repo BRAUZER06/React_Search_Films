@@ -1,13 +1,17 @@
 body{
-  
   background-color: #1a191f;
 }
-.header{
-  font-size: 30px;
+.wrapper{
+  font-size: 16px;
   color: white;
   margin: 15px auto;
-  width: 1170px;
+  width: 1070px;
   height: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.header{
+  align-items: center;
   display: flex;
   justify-content: space-between;
   
@@ -17,12 +21,19 @@ input{
   padding: 5px 10px;
   outline: none;
   border-radius: 5px;
-  width:  130%;
+ 
+  
+
+}
+input:hover,input:focus{
+  width: 160%;
+ float: right;
+
 }
 .section{
   width: 240px;
   height: 360px;
-  
+  position: relative;
   margin: 15px 20px 0px;
   margin-bottom: 60px;
   font-size: 17px;
@@ -34,14 +45,24 @@ input{
 .section_container_img{
   width: 240px;
   height: 360px;
-  
+  transition: 1s;
 }
+
 img{
+  position: relative;
   width: 240px;
   height: 360px;
-  
+  left: 0;
+  top: 0;
+  transition: 0.2s;
 }
-.section_p1{
+img:hover{
+  width: 250px;
+  
+  left: -10px;
+  top: -10px;
+}
+.section_text{
   padding-left: 2px;
   margin-top: 5px;
   margin-bottom:1px ;
@@ -55,7 +76,6 @@ img{
 .move{
   display: flex;
   flex-wrap: wrap;
- 
   margin: 0 auto;
   width: 1170px;
   height: 100%;

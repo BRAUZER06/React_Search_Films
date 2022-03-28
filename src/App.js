@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import axios  from "axios";
+import axios from "axios";
 import "./App.css";
 
 function App() {
@@ -23,38 +23,41 @@ function App() {
   const filteredCountries = searchMove.filter((country) => {
     return country.nameRu.toLowerCase().includes(inputValue.toLowerCase());
   });
-  console.log(searchMove);
+
   return (
     <div className="App">
-      <div className="header">
-        <div className="header_left">Movie App</div>
-        <div className="header_right">
-          <input
-            onChange={(e) => setInputValue(e.target.value)}
-            value={inputValue}
-            placeholder="Поиск"
-          />
-        </div>
-      </div>
-      <div className="move">
-        {filteredCountries.map((obj) => (
-          <div key={obj.filmId} className="section">
-            <div className="section_container">
-              <div className="section_container_img">
-                <img src={obj.posterUrlPreview} alt="Фото" />
-              </div>
-            </div>
-            <p className="section_p1">{obj.nameRu}</p>
-
-            {obj.genres.map((e, i) => {
-              return (
-                <span key={i} className="section_span">
-                  {` ${e.genre}\u00A0`}
-                </span>
-              );
-            })}
+      <div className="wrapper">
+        <div className="header">
+          <div className="header__logo">
+            <h1>Movie App</h1>
           </div>
-        ))}
+          <div className="header__inputSearch">
+            <input
+              onChange={(e) => setInputValue(e.target.value)}
+              value={inputValue}
+              placeholder="Поиск"
+            />
+          </div>
+        </div>
+        <div className="move">
+          {filteredCountries.map((obj) => (
+            <div key={obj.filmId} className="section">
+              <div className="section_photo">
+                <div className="section_photo_img">
+                  <img src={obj.posterUrlPreview} alt="Фото" />
+                </div>
+              </div>
+              <p className="section_text">{obj.nameRu}</p>
+              {obj.genres.map((e, i) => {
+                return (
+                  <span key={i} className="section_span">
+                    {` ${e.genre}\u00A0`}
+                  </span>
+                );
+              })}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
